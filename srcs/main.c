@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:52:37 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 03:06:35 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:10:22 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,13 @@ int	main(int argc, char *argv[], char *env[])
 	if (argc < 5)
 		return (0);
 	ft_bzero(&tpipex, sizeof(t_pipex));
+	if (!ft_strncmp(argv[1], "here_doc", 9))
+		tpipex.limiter = argv[2];
+	if (argc < 6 && tpipex.limiter != 0)
+		return (0);
 	path = get_path(env);
 	if (path == 0)
-		show_error("Path", PATH_NOT_PRESENT);
+		show_error("Path", PATH_NOT_PRESENT, 1);
 	tpipex.paths = ft_split(path, ':');
 	if (verify_commands(&tpipex, &argv[1], argc - 1) == 0)
 		return (0);

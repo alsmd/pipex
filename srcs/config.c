@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 23:03:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 01:13:09 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:00:22 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,17 @@ int			verify_commands(t_pipex *tpipex, char *commands[], int number_commands)
 	int			index;
 	t_command	*cmd;
 
-	index = 0;
-
+	index = 1;
+	if (tpipex->limiter != 0)
+		index = 2;
+	number_commands -= 1;
 	while (index < number_commands)
 	{
-		if (index != 0 && index != number_commands - 1)
-		{
-			cmd = create_new_command(tpipex, commands[index]);
-			check_command_exist(tpipex, cmd);
-		}
+		cmd = create_new_command(tpipex, commands[index]);
+		check_command_exist(tpipex, cmd);
 		index++;
 	}
 	tpipex->filein = commands[0];
-	tpipex->fileout = commands[number_commands - 1];
+	tpipex->fileout = commands[number_commands];
 	return (1);
 }

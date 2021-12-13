@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:48:17 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 01:18:14 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:24:39 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_pipex
 	char		**paths;
 	char		*filein;
 	char		*fileout;
+	char		*limiter;
 }	t_pipex;
 
 
@@ -46,8 +47,8 @@ enum E_ERROR
 	FORK_ERROR
 };
 //Function
-void	show_error(char *target_name, int status);
-int			verify_commands(t_pipex *tpipex, char *commands[], int number_commands);
+void	show_error(char *target_name, int status, int has_to_exit);
+int		verify_commands(t_pipex *tpipex, char *commands[], int number_commands);
 int		start_pipex(t_pipex *tpipex, char *env[]);
 
 //UTILS
@@ -57,5 +58,9 @@ char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char *s2);
+void	free_objs(t_pipex *tpipex);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*get_next_line(int fd);
+void	handler_final_file(int fd);
 
 #endif

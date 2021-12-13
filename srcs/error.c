@@ -6,13 +6,13 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 23:04:44 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 01:18:37 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 03:47:22 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	show_error(char *target_name, int status)
+void	show_error(char *target_name, int status, int has_to_exit)
 {
 	char	*str_1;
 	char	*str_2;
@@ -33,5 +33,7 @@ void	show_error(char *target_name, int status)
 	str_1 = ft_strjoin(tmp, str_2);
 	free(tmp);
 	write(2, str_1, ft_strlen(str_1));
-	exit(status);
+	free(str_1);
+	if (has_to_exit)
+		exit(status);
 }
