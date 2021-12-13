@@ -6,13 +6,13 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 22:57:47 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 19:59:36 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 23:43:51 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-int	execute_cmd(t_command *cmd, char *env[], t_pipex *tpipex)
+void	execute_cmd(t_command *cmd, char *env[], t_pipex *tpipex)
 {
 	if (cmd->not_exist == 1)
 	{
@@ -30,7 +30,7 @@ void	get_content(t_pipex *tpipex)
 
 	line = get_next_line(STDIN_FILENO);
 	pipe(fd);
-	while (ft_strncmp(line, tpipex->limiter, ft_strlen(line) - 1))
+	while (ft_strncmp(line, tpipex->limiter, ft_strlen(tpipex->limiter) + 1))
 	{
 		write(fd[1], line, ft_strlen(line));
 		free(line);
@@ -50,7 +50,10 @@ void	last_child(t_pipex *tpipex, t_command *cmd, char *env[])
 	{
 		fd_in = open(tpipex->filein, O_RDONLY);
 		if (fd_in == -1)
+		{
+			free_objs(tpipex);
 			show_error(tpipex->filein, FILE_DO_NOT_EXIST, 1);
+		}
 		dup2(fd_in, STDIN_FILENO);
 	}
 	execute_cmd(cmd, env, tpipex);
@@ -63,7 +66,7 @@ void	parent(t_pipex *tpipex, t_command *cmd, char *env[], int fd[2])
 
 	if (cmd->next == 0)
 	{
-		fd_file = open(tpipex->fileout, O_RDWR | O_CREAT);
+		fd_file = open(tpipex->fileout, O_RDWR | O_CREAT, 0666);
 		if (tpipex->limiter != 0)
 			handler_final_file(fd_file);
 		dup2(fd_file, STDOUT_FILENO);
@@ -74,7 +77,7 @@ void	parent(t_pipex *tpipex, t_command *cmd, char *env[], int fd[2])
 	exit(0);
 }
 
-int	start_pipex(t_pipex *tpipex, char *env[])
+void	start_pipex(t_pipex *tpipex, char *env[])
 {
 	t_command	*last_cmd;
 	int			id;

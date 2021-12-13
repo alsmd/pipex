@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:48:17 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 19:46:47 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 23:38:02 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ enum e_error
 //Function
 void	show_error(char *target_name, int status, int has_to_exit);
 int		verify_commands(t_pipex *tpipex, char *commands[], int number_commands);
-int		start_pipex(t_pipex *tpipex, char *env[]);
+void	start_pipex(t_pipex *tpipex, char *env[]);
 
 //UTILS
 void	ft_bzero(void *s, size_t n);

@@ -8,7 +8,7 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = pipex
 
-CFLAGS = -g 
+CFLAGS = -Wall -Werror -Wextra
 
 CC = gcc
 

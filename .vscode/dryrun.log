@@ -1,0 +1,17 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/coder/Documents/pipex'
+gcc -Wall -Werror -Wextra   -c -o srcs/start_pipex.o srcs/start_pipex.c
+gcc -Wall -Werror -Wextra   -c -o srcs/config.o srcs/config.c
+gcc -Wall -Werror -Wextra   -c -o srcs/error.o srcs/error.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/ft_calloc.o srcs/utils/ft_calloc.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/ft_split.o srcs/utils/ft_split.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/ft_bzero.o srcs/utils/ft_bzero.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/ft_strlen.o srcs/utils/ft_strlen.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/ft_substr.o srcs/utils/ft_substr.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/ft_strjoin.o srcs/utils/ft_strjoin.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/ft_strncmp.o srcs/utils/ft_strncmp.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/get_next_line.o srcs/utils/get_next_line.c
+gcc -Wall -Werror -Wextra   -c -o srcs/utils/handler_final_file.o srcs/utils/handler_final_file.c
+gcc -Wall -Werror -Wextra -o pipex srcs/main.o srcs/start_pipex.o srcs/config.o srcs/error.o srcs/utils/ft_calloc.o srcs/utils/ft_split.o srcs/utils/ft_bzero.o srcs/utils/ft_strlen.o srcs/utils/ft_substr.o srcs/utils/ft_strjoin.o srcs/utils/ft_strncmp.o srcs/utils/get_next_line.o srcs/utils/handler_final_file.o
+make: Leaving directory '/home/coder/Documents/pipex'
+ 

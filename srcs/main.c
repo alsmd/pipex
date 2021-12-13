@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:52:37 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 19:10:22 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 23:40:57 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,6 @@ char	*get_path(char *env[])
 	}
 	return (0);
 }
-
-/* void	print_commands(t_pipex *tpipex)
-{
-	t_command	*begin;
-	int			index;
-
-	begin = tpipex->commands;
-	index = 0;
-	while (begin)
-	{
-		printf("name: %s\nargv:\n", begin->params[0]);
-		while (begin->params[index] != 0)
-		{
-			printf("%s\n", begin->params[index]);
-			index++;
-		}
-		index = 0;
-		begin = begin->next;
-	}
-} */
 
 void	free_objs(t_pipex *tpipex)
 {
