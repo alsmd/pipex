@@ -6,19 +6,20 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:48:17 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 19:24:39 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:46:47 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <string.h>
-#include <errno.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <string.h>
+# include <errno.h>
+
 typedef struct s_command
 {
 	char				**params;
@@ -37,8 +38,7 @@ typedef struct s_pipex
 	char		*limiter;
 }	t_pipex;
 
-
-enum E_ERROR
+enum e_error
 {
 	FILE_DO_NOT_EXIST = 1,
 	CMD_NOT_FOUND,
@@ -46,6 +46,7 @@ enum E_ERROR
 	PIPE_ERROR,
 	FORK_ERROR
 };
+
 //Function
 void	show_error(char *target_name, int status, int has_to_exit);
 int		verify_commands(t_pipex *tpipex, char *commands[], int number_commands);

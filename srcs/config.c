@@ -6,12 +6,11 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 23:03:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 19:00:22 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:46:11 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
-
 
 t_command	*create_new_command(t_pipex *tpipex, char *command)
 {
@@ -40,7 +39,7 @@ void	check_command_exist(t_pipex *tpipex, t_command *cmd)
 	char	*tmp;
 	int		index;
 	int		exist;
-	
+
 	index = 0;
 	exist = 0;
 	while (tpipex->paths[index] != 0)
@@ -63,7 +62,7 @@ void	check_command_exist(t_pipex *tpipex, t_command *cmd)
 		cmd->not_exist = 1;
 }
 
-int			verify_commands(t_pipex *tpipex, char *commands[], int number_commands)
+int	verify_commands(t_pipex *tpipex, char *commands[], int number_commands)
 {
 	int			index;
 	t_command	*cmd;

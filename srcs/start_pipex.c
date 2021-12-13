@@ -6,13 +6,13 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 22:57:47 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 19:27:54 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/13 19:59:36 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-int		execute_cmd(t_command *cmd, char *env[], t_pipex *tpipex)
+int	execute_cmd(t_command *cmd, char *env[], t_pipex *tpipex)
 {
 	if (cmd->not_exist == 1)
 	{
@@ -64,7 +64,8 @@ void	parent(t_pipex *tpipex, t_command *cmd, char *env[], int fd[2])
 	if (cmd->next == 0)
 	{
 		fd_file = open(tpipex->fileout, O_RDWR | O_CREAT);
-		handler_final_file(fd_file);
+		if (tpipex->limiter != 0)
+			handler_final_file(fd_file);
 		dup2(fd_file, STDOUT_FILENO);
 	}
 	close(fd[1]);
@@ -73,7 +74,7 @@ void	parent(t_pipex *tpipex, t_command *cmd, char *env[], int fd[2])
 	exit(0);
 }
 
-int		start_pipex(t_pipex *tpipex, char *env[])
+int	start_pipex(t_pipex *tpipex, char *env[])
 {
 	t_command	*last_cmd;
 	int			id;
