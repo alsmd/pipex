@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 23:03:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 19:46:11 by flda-sil         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:17:36 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_command	*create_new_command(t_pipex *tpipex, char *command)
 	t_command	*new_cmd;
 
 	new_cmd = (t_command *) ft_calloc(1, sizeof(t_command));
+	tokenzine(command, '\'', ' ', 1);
+	tokenzine(command, '\"', ' ', 1);
 	new_cmd->params = ft_split(command, ' ');
+	destokenzine_commands(new_cmd->params);
 	new_cmd->full_instruction = command;
 	begin = tpipex->commands;
 	if (begin == 0)

@@ -1,5 +1,5 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'srcs/start_pipex.o', needed by 'pipex'.  Stop.
+make: *** No rule to make target 'srcs/config.o', needed by 'pipex'.  Stop.
  
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
@@ -8,7 +8,7 @@ make: *** No rule to make target 'srcs/start_pipex.o', needed by 'pipex'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Dec 13 23:37:41 2021
+# Make data base, printed on Fri Jan  7 17:17:32 2022
 
 # Variables
 
@@ -37,7 +37,7 @@ RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /home/coder/.vscode-server/bin/7db1a2b88f7557e0a43fec75b6ba7e50b3e9f77e/node
+_ = /home/coder/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
 # makefile (from 'Makefile', line 11)
 CFLAGS = -Wall -Werror -Wextra
 # makefile (from 'Makefile', line 1)
@@ -51,13 +51,13 @@ OBJS = $(SRCS:.c=.o)
 # environment
 VSCODE_CWD = /home/coder
 # environment
-SSH_CONNECTION = 192.168.88.0 18946 192.168.87.29 2222
+SSH_CONNECTION = 192.168.127.0 42817 192.168.90.139 2222
 # environment
-PATH = /home/coder/.vscode-server/bin/7db1a2b88f7557e0a43fec75b6ba7e50b3e9f77e/bin:/home/coder/.vscode-server/bin/7db1a2b88f7557e0a43fec75b6ba7e50b3e9f77e/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /home/coder/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/coder/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-f67f6a5b-ea75-43cc-aab2-d17eddedd0e1.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-1b2126c8-688f-41e2-9f3f-7bd4a4be41a5.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -91,7 +91,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # makefile (from 'Makefile', line 2)
-SRCS = ./srcs/main.c ./srcs/start_pipex.c ./srcs/config.c ./srcs/error.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_split.c ./srcs/utils/ft_bzero.c ./srcs/utils/ft_strlen.c ./srcs/utils/ft_substr.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strncmp.c ./srcs/utils/get_next_line.c ./srcs/utils/handler_final_file.c
+SRCS = ./srcs/main.c ./srcs/start_pipex.c ./srcs/config.c ./srcs/error.c ./srcs/token.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_split.c ./srcs/utils/ft_bzero.c ./srcs/utils/ft_strlen.c ./srcs/utils/ft_substr.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strncmp.c ./srcs/utils/get_next_line.c ./srcs/utils/handler_final_file.c
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 13)
@@ -117,11 +117,11 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 192.168.88.0 18946 2222
+SSH_CLIENT = 192.168.127.0 42817 2222
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-BROWSER = /home/coder/.vscode-server/bin/7db1a2b88f7557e0a43fec75b6ba7e50b3e9f77e/bin/helpers/browser.sh
+BROWSER = /home/coder/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
 # default
 MAKEFILES := 
 # automatic
@@ -135,7 +135,7 @@ SUFFIXES :=
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-VSCODE_INJECT_NODE_MODULE_LOOKUP_PATH = /home/coder/.vscode-server/bin/7db1a2b88f7557e0a43fec75b6ba7e50b3e9f77e/remote/node_modules
+VSCODE_INJECT_NODE_MODULE_LOOKUP_PATH = /home/coder/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/remote/node_modules
 # default
 .RECIPEPREFIX := 
 # default
@@ -155,9 +155,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 110, inode 225509432): 12 files, no impossibilities.
+# . (device 57, inode 225509432): 11 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -192,9 +192,15 @@ srcs/utils/handler_final_file.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-13 23:37:33.032554923
+#  Last modified 2022-01-07 17:17:26.96047198
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+srcs/token.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/ft_strlen.o:
@@ -230,8 +236,8 @@ fclean: clean
 
 # Not a target:
 srcs/config.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
+#  Implicit rule search has been done.
+#  File does not exist.
 #  File has not been updated.
 
 # Not a target:
@@ -277,8 +283,10 @@ srcs/utils/ft_substr.o:
 # Not a target:
 srcs/start_pipex.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+ 
+#  Last modified 2022-01-07 17:17:28.664537575
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 srcs/utils/ft_strncmp.o:
@@ -289,18 +297,17 @@ srcs/utils/ft_strncmp.o:
 # Not a target:
 srcs/main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-13 23:37:34.912629129
+#  Last modified 2022-01-07 17:17:28.636536497
 #  File has been updated.
 #  Successfully updated.
 
- 
 # Not a target:
 srcs/error.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-pipex: srcs/main.o srcs/start_pipex.o srcs/config.o srcs/error.o srcs/utils/ft_calloc.o srcs/utils/ft_split.o srcs/utils/ft_bzero.o srcs/utils/ft_strlen.o srcs/utils/ft_substr.o srcs/utils/ft_strjoin.o srcs/utils/ft_strncmp.o srcs/utils/get_next_line.o srcs/utils/handler_final_file.o
+pipex: srcs/main.o srcs/start_pipex.o srcs/config.o srcs/error.o srcs/token.o srcs/utils/ft_calloc.o srcs/utils/ft_split.o srcs/utils/ft_bzero.o srcs/utils/ft_strlen.o srcs/utils/ft_substr.o srcs/utils/ft_strjoin.o srcs/utils/ft_strncmp.o srcs/utils/get_next_line.o srcs/utils/handler_final_file.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -308,19 +315,19 @@ pipex: srcs/main.o srcs/start_pipex.o srcs/config.o srcs/error.o srcs/utils/ft_c
 	$(CC) $(CFLAGS) -o $@ $^
 
 # files hash-table stats:
-# Load=23/1024=2%, Rehash=0, Collisions=2/58=3%
+# Load=24/1024=2%, Rehash=0, Collisions=3/60=5%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 36 / storage = 437 B / avg = 12 B
-# current buf: size = 8162 B / used = 437 B / count = 36 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 444 B / avg = 12 B
+# current buf: size = 8162 B / used = 444 B / count = 36 / avg = 12 B
 
 # strcache performance: lookups = 58 / hit rate = 37%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=1/58=2%
-# Finished Make data base on Mon Dec 13 23:37:41 2021
+# Finished Make data base on Fri Jan  7 17:17:32 2022
 
  

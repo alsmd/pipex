@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:48:17 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/13 23:38:02 by flda-sil         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:03:34 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ void	free_objs(t_pipex *tpipex);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*get_next_line(int fd);
 void	handler_final_file(int fd);
+void	tokenzine(char *command, char limiter, char c, char s);
+void	destokenzine_commands(char **commands);
 
 #endif
